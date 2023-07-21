@@ -1,9 +1,7 @@
 from ctypes import *
 import math, os
 
-so_file="./test.so"
-if os.name=="nt":
-  so_file="./test.dll"
+so_file = "./test.dll" if os.name=="nt" else "./test.so"
 lib = CDLL(so_file)
 print("lib.square(10) result is", lib.square(10))
 assert lib.square(10) == 100, "Cannot validate V square()."
